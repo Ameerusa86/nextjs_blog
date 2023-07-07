@@ -8,15 +8,20 @@ const getBlogs = async () => {
   const res = await fetch(`${API_URL}/api/blogs`, {
     cache: "no-store",
   });
-  try {
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return NextResponse.json(
-      { message: "Something went wrong" },
-      { status: 500 }
-    );
+  if (!res.ok) {
+    throw new Error("Failed to fetch blogs");
   }
+  const data = await res.json();
+  return data;
+  // try {
+  //   const data = await res.json();
+  //   return data;
+  // } catch (error) {
+  //   return NextResponse.json(
+  //     { message: "Something went wrong" },
+  //     { status: 500 }
+  //   );
+  // }
 };
 
 const Card = async () => {
