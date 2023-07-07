@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.card {
+  @apply w-72 h-96 bg-white p-1 rounded-md;
+}
+
+.card-image {
+  @apply bg-gray-300 w-full h-3/5 rounded-t-md;
+}
+
+.card-image:hover {
+  @apply transform scale-95;
+}
+
+.category {
+  @apply text-lg uppercase font-semibold text-blue-500 pt-2 px-3;
+}
+
+.category:hover {
+  @apply cursor-pointer;
+}
+
+.heading {
+  @apply text-gray-700 px-2 text-sm;
+}
+
+.heading:hover {
+  @apply cursor-pointer;
+}
+
+.author {
+  @apply text-gray-500 font-normal text-xs pt-20;
+}
+
+.name {
+  @apply font-semibold;
+}
+
+.name:hover {
+  @apply cursor-pointer;
+}
